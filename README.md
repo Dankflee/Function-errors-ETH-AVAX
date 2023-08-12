@@ -15,7 +15,7 @@ This is a Solidity smart contract that demonstrates basic mathematical operation
 
 ## Overview
 
-The `CalculationExample` contract showcases three mathematical operations: addition, subtraction, and division. It provides an example of using various Solidity control structures to validate inputs and handle errors. The contract includes detailed comments to explain the purpose and behavior of each function.
+The `ETH-AVX-1` contract showcases three mathematical operations: addition, subtraction, and division. It provides an example of using various Solidity control structures to validate inputs and handle errors. The contract includes detailed comments to explain the purpose and behavior of each function.
 
 ## Functions
 
