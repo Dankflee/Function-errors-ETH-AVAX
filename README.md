@@ -1,54 +1,62 @@
-# CalculationExample Smart Contract
+# SimpleBank Smart Contract
 
-This is a Solidity smart contract that demonstrates basic mathematical operations, including addition, subtraction, and division. The contract defines functions to perform these operations while incorporating different error handling techniques.
+This is a basic Solidity smart contract that implements a simple bank-like system. Users can deposit and withdraw funds, and there are examples showcasing the usage of `require()`, `assert()`, and `revert()` statements.
 
-## Table of Contents
+## Contract Functions
 
-- [Overview](#overview)
-- [Functions](#functions)
-  - [add](#add)
-  - [subtract](#subtract)
-  - [divide](#divide)
-- [Error Handling](#error-handling)
-- [Usage](#usage)
-- [License](#license)
+### `deposit()`
 
-## Overview
+Allows users to deposit Ether into their account.
 
-The `ETH-AVX-1` contract showcases three mathematical operations: addition, subtraction, and division. It provides an example of using various Solidity control structures to validate inputs and handle errors. The contract includes detailed comments to explain the purpose and behavior of each function.
+- Parameters: None
+- Visibility: External
+- Payable: Yes
+- Reverts: If the deposit amount is not greater than 0.
 
-## Functions
+### `withdraw(uint256 _amount)`
 
-### `add`
+Allows users to withdraw Ether from their account.
 
-The `add` function takes two input parameters, `a` and `b`, representing the operands to be added together. It uses the `require` statement to validate that both operands are greater than zero before performing the addition. The result is stored in the `result` variable.
+- Parameters: `_amount` (uint256) - The amount of Ether to withdraw.
+- Visibility: External
+- Payable: No
+- Reverts:
+  - If the withdrawal amount is not greater than 0.
+  - If the user's balance is less than the withdrawal amount.
 
-### `subtract`
+### `getBalance()`
 
-The `subtract` function also takes two input parameters, `a` and `b`, representing the operands for subtraction. It uses the `assert` statement to ensure that `a` is greater than or equal to `b` before performing the subtraction. The result is stored in the `result` variable.
+Returns the balance of the caller's account.
 
-### `divide`
+- Parameters: None
+- Visibility: External
+- Payable: No
 
-The `divide` function accepts two input parameters, `a` (dividend) and `b` (divisor). It uses the `revert` statement to handle the case where the divisor is zero, preventing division by zero. The result of the division operation is stored in the `result` variable.
+### `assertExample(uint256 _value)`
 
-## Error Handling
+Demonstrates the usage of the `assert()` statement.
 
-The contract employs different error handling techniques for various scenarios:
+- Parameters: `_value` (uint256) - Value to check.
+- Visibility: External
+- Pure: Yes
+- Reverts: If `_value` is not greater than 10.
 
-- The `add` function uses `require` to validate that both input operands are greater than zero.
-- The `subtract` function uses `assert` to ensure that the first operand is greater than or equal to the second operand.
-- The `divide` function uses `revert` to prevent division by zero.
+### `revertExample(uint256 _value)`
+
+Demonstrates the usage of the `revert()` statement.
+
+- Parameters: `_value` (uint256) - Value to check.
+- Visibility: External
+- Pure: Yes
+- Reverts: If `_value` is less than or equal to 10.
 
 ## Usage
 
-1. Clone this repository: `git clone https://github.com/your-username/your-repo.git`
-2. Navigate to the project folder: `cd your-repo`
-3. Compile and deploy the smart contract using a suitable Ethereum development environment.
-
-Feel free to explore and modify the contract according to your needs.
+1. Deploy the smart contract on a compatible Ethereum network using a Solidity compiler version of 0.8.0 or higher.
+2. Interact with the contract functions using a tool like Remix or other Ethereum development environments.
+3. Ensure you send the appropriate amount of Ether when interacting with payable functions.
 
 ## License
 
-This smart contract is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+This smart contract is released under the MIT License. For details, please see the [LICENSE](LICENSE) file.
 
----
